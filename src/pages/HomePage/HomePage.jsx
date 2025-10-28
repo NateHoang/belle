@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <div className="home-container">
       <div className="home-wrapper">
-        <h1 className="home-title">💖 Birthday Wishes Wall 💌</h1>
+        <h1 className="home-title">💖 Birthday Wishes to Belle 💌</h1>
         <p className="home-subtitle">
           These beautiful wishes were sent just for you 🎉
         </p>
