@@ -10,12 +10,13 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Allow requests from your frontend
 app.use(
   cors({
-    origin: "http://localhost:5173", // 🚫 no space here
-    methods: ["GET", "POST"],        // optional: restrict allowed methods
-    credentials: false,              // set to true if you need cookies
+    origin: [
+      "http://localhost:5173",           // local dev
+      "https://belle-lovat.vercel.app",  // ✅ your actual frontend
+    ],
+    methods: ["GET", "POST"],
   })
 );
 

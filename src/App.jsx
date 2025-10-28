@@ -7,9 +7,9 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/add" element={<AddMessagePage />} />
-        <Route path="/thank-you" element={<ThankYouPage />} />
+        <Route path="/belle/" element={<HomePage />} />
+        <Route path="/belle/add" element={<AddMessagePage />} />
+        <Route path="/belle/thank-you" element={<ThankYouPage />} />
       </Routes>
     </Router>
   );
