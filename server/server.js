@@ -13,8 +13,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",           // local dev
-      "https://belle-lovat.vercel.app",  // ✅ your actual frontend
+      "http://localhost:5173",          // local
+      "https://belle-lovat.vercel.app", // ✅ your Vercel frontend
     ],
     methods: ["GET", "POST"],
   })
