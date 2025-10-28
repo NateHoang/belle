@@ -80,6 +80,27 @@
   font-style: italic;
 }
 
+.add-message-button-container {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.add-message-button {
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-message-button:hover {
+  background-color: #e0559b;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .message-card {

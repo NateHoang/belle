@@ -1,17 +1,17 @@
-
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getMessages } from "../../api"; 
 import "./HomePage.css";
 
 export default function HomePage() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // 🔹 Fetch real messages from your backend
-    fetch("http://localhost:5001/api/messages") // adjust if your backend runs elsewhere
-      .then((res) => res.json())
-      .then((data) => {
-        setMessages(data);
+    getMessages()
+      .then((res) => {
+        setMessages(res.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -27,6 +27,15 @@ export default function HomePage() {
         <p className="home-subtitle">
           These beautiful wishes were sent just for you 🎉
         </p>
+
+        <div className="add-message-button-container">
+          <button
+            className="add-message-button"
+            onClick={() => navigate("/add")}
+          >
+            ✨ Add Your Message ✨
+          </button>
+        </div>
 
         <div className="messages-grid">
           {loading ? (
