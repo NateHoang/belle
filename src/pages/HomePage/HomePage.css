@@ -1,112 +1,191 @@
-.home-container {
-  min-height: 100vh;
+/* ===== PAGE LAYOUT ===== */
+.homepage {
+  display: flex;
+  flex-direction: column; /* stack hero + messages vertically */
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  background: url('/src/assets/home.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
-  background: linear-gradient(180deg, #ffe4e9, #f9a8d4);
-  padding: 2rem;
+  align-items: center; /* ✅ center text vertically and horizontally */
+}
+
+/* Overlay behind text */
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.hero-title {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  color: #ffe8ff;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+}
+
+/* Optional animated scroll‑down arrow */
+.scroll-down {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Subtle fade-in for hero text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MESSAGES SECTION ===== */
+.messages-section {
+  width: 100%;
+  background-color: #fff;
+  padding: 4rem 0 2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .home-wrapper {
-  background: #ffffff;
-  border-radius: 1.25rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  padding: 2.5rem;
-  max-width: 1100px;
-  width: 100%;
+  width: 90%;
+  max-width: 900px;
   text-align: center;
 }
 
+/* Headings and subtitles */
 .home-title {
   font-size: 2rem;
-  font-weight: 800;
-  color: #db2777;
+  color: #d63384;
+  font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .home-subtitle {
-  color: #374151;
-  font-size: 1.1rem;
+  color: #6c757d;
   margin-bottom: 2rem;
 }
 
-/* The flex magic happens here */
-.messages-grid {
+/* Add message button */
+.add-message-button-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
   justify-content: center;
+  margin-bottom: 2.5rem;
 }
 
-/* Each message card adjusts based on content */
+.add-message-button {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.add-message-button:hover {
+  background-color: #ff85c1;
+  transform: translateY(-2px);
+}
+
+/* ===== MESSAGES GRID ===== */
+.messages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
 .message-card {
-  flex: 1 1 260px; /* min width: 260px, grows proportionally */
-  max-width: 350px;
-  background: #fff;
-  border: 2px solid #f9a8d4;
-  border-radius: 1rem;
-  padding: 1.25rem 1rem;
+  background: #ffeaf7;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   text-align: left;
-  box-shadow: 0 6px 14px rgba(236, 72, 153, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .message-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(236, 72, 153, 0.25);
+  transform: translateY(-4px);
 }
 
 .message-name {
-  color: #ec4899;
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  color: #d63384;
+  margin-bottom: 0.25rem;
 }
 
 .message-text {
-  color: #374151;
-  font-size: 1rem;
-  line-height: 1.5;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .message-date {
   margin-top: 0.75rem;
-  color: #9ca3af;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
+  color: #6c757d;
 }
 
 .no-messages {
-  color: #9ca3af;
+  color: #9c9c9c;
   font-size: 1rem;
-  font-style: italic;
-}
-
-.add-message-button-container {
-  text-align: center;
   margin-top: 1.5rem;
-  margin-bottom: 2rem;
 }
 
-.add-message-button {
-  background-color: #ff66b2;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.add-message-button:hover {
-  background-color: #e0559b;
-}
-
-/* Responsive adjustments */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-  .message-card {
-    flex: 1 1 90%;
+  .hero-title {
+    font-size: 2.2rem;
   }
-  .home-title {
-    font-size: 1.6rem;
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-overlay {
+    padding: 1.5rem 2rem;
+  }
+
+  .messages-grid {
+    grid-template-columns: 1fr;
   }
 }
